@@ -1,0 +1,1 @@
+“This directory will have a subdirectory for each Django project”
