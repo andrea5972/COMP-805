@@ -1,1 +1,1 @@
-“This director is used for labwork”
+“This directory is used for labwork”
