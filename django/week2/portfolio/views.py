@@ -9,7 +9,7 @@ def home(request):
     return render(request, 'home.html', context)
 
 
-    def resume(request):
+def resume(request):
     """
     Renders my Resume static page template
     Retuns: the resume.html page
@@ -18,7 +18,7 @@ def home(request):
     return render(request, 'resume.html', context)
 
 
-    def portfolio(request):
+def portfolio(request):
     """
     Renders my Portfolio static page template
     Retuns: the portfolio.html page
@@ -27,7 +27,7 @@ def home(request):
     return render(request, 'portfolio.html', context)
 
 
-    def contact(request):
+def contact(request):
     """
     Renders my Contact static page template
     Retuns: the contact.html page
