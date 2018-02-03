@@ -7,3 +7,11 @@ def home(request):
     """
     context = {}
     return render(request, 'home.html', context)
+
+    def history(request):
+    """
+    Renders my Resume static page template
+    Retuns: the resume.html page
+    """
+    context = {}
+    return render(request, 'resume.html', context)
