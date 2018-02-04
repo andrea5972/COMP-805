@@ -38,3 +38,66 @@ wrap {
     max-width: 100%;
 }
 
+.resume-banner {
+    text-align: center;
+    color:  #606060;
+    font-size: 150%;
+    max-width: 100%;
+}
+
+.resume-subbanner {
+    text-align: center;
+    color: #00008B;
+    font-size: 100%;
+    max-width: 100%;
+}
+
+.blocks {
+    text-align: center;
+}
+
+.contact-banner {
+    text-align: center;
+    color: #606060;
+    font-size: 150%;
+    max-width: 100%;
+}
+
+.contact-content {
+    text-align: center;
+    color: #00008B;
+    font-size: 150%;
+    max-width: 100%;
+}
+
+a {
+    color: #87CEEB;
+}
+
+.portfolio-banner {
+    text-align: center;
+    color: #606060;
+    font-size: 150%;
+    max-width: 100%;
+}
+
+
+.column {
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
