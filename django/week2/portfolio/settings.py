@@ -120,6 +120,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = "User/andreamurphy/workspace/django/week2/static/media"
+
 STATICFILES_DIRS = [
   os.path.join(BASE_DIR, "static"),
 ]
