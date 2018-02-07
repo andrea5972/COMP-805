@@ -1,0 +1,103 @@
+nav {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    padding: 0;
+    list-style: none;
+    background: #483D8B;
+    padding: 8px;
+    border-radius: 8px
+    margin-left: 0px;
+}
+
+nav a {
+    color: #FDF5E6;
+    display: inline-block;
+    text-align: center;
+    text-decoration:  none;
+    font-size: 1.46em;
+    padding: 5px;
+}
+
+wrap {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.homepage-banner {
+    text-align: center;
+    color:  #708090;
+    font-size: 150%;
+    max-width: 100%;
+}
+
+.homepage-content {
+    text-align: center;
+    color:  #606060;
+    font-size: 150%;
+    max-width: 100%;
+}
+
+.resume-banner {
+    text-align: center;
+    color:  #606060;
+    font-size: 150%;
+    max-width: 100%;
+}
+
+.resume-subbanner {
+    text-align: center;
+    color: #00008B;
+    font-size: 100%;
+    max-width: 100%;
+}
+
+.blocks {
+    text-align: center;
+}
+
+.contact-banner {
+    text-align: center;
+    color: #606060;
+    font-size: 150%;
+    max-width: 100%;
+}
+
+.contact-content {
+    text-align: center;
+    color: #00008B;
+    font-size: 150%;
+    max-width: 100%;
+}
+
+a {
+    color: #87CEEB;
+}
+
+.portfolio-banner {
+    text-align: center;
+    color: #606060;
+    font-size: 150%;
+    max-width: 100%;
+}
+
+
+.column {
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
