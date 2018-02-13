@@ -102,3 +102,17 @@ body {
     margin: 0;
 }
 
+.my-button {
+    width: 20%;
+    display: inline-block;
+    overflow-wrap: inherit;
+    padding: 6px;
+    background-color:  #191970;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    border: inherit;
+    border-radius: 17px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
