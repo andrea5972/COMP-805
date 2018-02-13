@@ -1,5 +1,8 @@
-from resume import views
+from django.urls import path
 
+from . import views
+
+app_name = 'resume'
 urlpatterns = [
-    url(r'^$', views.home, name="home"),
+    path(r'index/', views.index, name='index'),
 ]

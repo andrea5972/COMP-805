@@ -28,12 +28,10 @@ def check_title(title_list):
     title_list: list of strings
     Returns: list of strings that are titles
     """
-    new_list= [" "]
-    for string in title_list:
-
-
-        string = (string.isalpha, string.istitle)
-        new_list.append(string)
+    new_list= [ ]
+    for title in title_list:
+        if title.istitle() and title.isalpha():
+                new_list.append(title)
 
     return new_list
 
@@ -46,13 +44,10 @@ def restock_inventory(inventory):
         value: integer that equals the number of that item currently on hand
     Retuns: updated dictionay where each item is restocked
     """
-    inventory= { 'pencil':10, 'pen':8, 'paper':7}
-    new_inventory = dict( )
-    for key in inventory:
-
-
-        inventory[key]= inventory[key] +10
-        inventory.update()
+    new_inventory = { }
+    for key, val in inventory:
+        val = val +10
+        new_inventory[key] =val
 
     return new_inventory
 
@@ -66,14 +61,9 @@ def filter_0_items(inventory):
     Returns: the same inventory_dic with any item that had quantity removed
     """
     results = { }
-    for key, value in inventory.items():
-
-
-        if key in inventory ==0:
-            inventory.pop(key, None)
-        else:
-            inventory.update()
-
+    for k, v in inventory.items( ):
+        if v in inventory ==0:
+            new_inventory[k] = v
     return results
 
 
@@ -85,17 +75,11 @@ def average_grades(grades):
         value: list of integers grades receieved in class
     Returns: dictionary that averages out the grades of each student
     """
-    grade = { }
-    gradesMean = dict( )
-    for key, value in grades.items():
+    new_grades  = { }
+    for student, grades in grades.items( ):
+        new_grades[ student_names] = sum(student_grades)/ len(student_grades)
 
-
-        grades = value
-        gradesMean = float(sum(item for item in grades)) / len(grades)
-        value.append(gradesMean)
-        gradesMean = grades
-
-    return gradesMean
+    return new_grades
 
 
 
