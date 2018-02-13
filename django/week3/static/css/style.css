@@ -52,6 +52,13 @@ wrap {
     max-width: 100%;
 }
 
+.resume-content {
+    text-align: inherit;
+    color:  #606060;
+    font-size: 150%;
+    max-width: 100%;
+}
+
 .blocks {
     text-align: center;
 }
