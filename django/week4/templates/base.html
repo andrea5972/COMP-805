@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Andrea Murphy</title>
+    <link rel='stylesheet' href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+      <nav>
+        <a href="{% url 'home' %}">Home Page</a> |
+        <a href="{% url 'resume:index' %}">Resume</a> |
+        <a href="{% url 'portfolio' %}">Portfolio</a> |
+        <a href="{% url 'contact' %}">Contact</a> |
+      </nav>
+
+      {% block content %}
+      {% endblock %}
+
+  </body>
+</html>
