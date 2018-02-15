@@ -10,6 +10,15 @@ def squared_nums(num_list):
     Squares numbers in num_list
     num_list: list of numbers
     Returns: listof these numbers squared
+
+    >>> squared_nums([1, 2, 3])
+    [1, 4, 9]
+
+    >>> squared_nums([])
+    []
+
+    >>> squared_nums ([-1, -2])
+    [1, 4]
     """
     new_list = [ ]
     for num in num_list:
@@ -19,7 +28,7 @@ def squared_nums(num_list):
         sq_num =pow(num, 2)
         new_list.append(sq_num)
 
-   return new_list
+    return new_list
 
 
 def check_title(title_list):
@@ -80,6 +89,11 @@ def average_grades(grades):
         new_grades[ student_names] = sum(student_grades)/ len(student_grades)
 
     return new_grades
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod( )
 
 
 
