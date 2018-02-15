@@ -1,38 +1,19 @@
 from django.db import models
-from django.forms import ModelForm
 
-class Education(models.Model):
+class Resume(models.Model):
     """
-    Model (DB layer) for Andrea Murphy's education records
-
+    Model (DB layer) for "resume" app
     """
-    institution_name = models.CharField(max_length=40, null=False, blank=True)
-    location = models.CharField(max_length=40 , null=False, blank=True)
-    degree = models.CharField(max_length=40, null=False, blank=True)
-    major = models.CharField(max_length=40, null=False, blank=True)
-    gpa = models.FloatField(max_length=40, null=False, blank=True)
-
-    def __str__(self):
-        """
-        Returns fields attached to Education models.
-        """
-        if not hasattr(self, 'model'):
-            return super().__str__()
-        model = self.Education
-        app = Education._meta.app_label
-        return '%s.%s.%s' % (resume, Education._meta.object_name, self.name)
-
-
-class EducationForm(ModelForm):
-    class Meta:
-       model = Education
-       fields = ['institution_name', 'location', 'degree', 'major', 'gpa']
+    First_name = models.CharField(max_length=40, null=False, blank=True)
+    Last_name = models.CharField(max_length=40, null=False, blank=True)
 
 
 class Experience(models.Model):
     """
-    Model (DB layer) for Andrea Murphy professional work experience
+    Model (DB layer) for "resume" app that hold Experience records
+    ForeignKey: Resume
     """
+    parent_resume = models.ForeignKey(Resume, on_delete=models.CASCADE, default =1)
     company = models.CharField(max_length=40, null=False, blank=True)
     title = models.CharField(max_length=40, null=False, blank=True)
     location = models.CharField(max_length=40, null=False, blank=True)
@@ -40,19 +21,18 @@ class Experience(models.Model):
     end_date = models.DateField()
     description = models.TextField()
 
-    def __str__(self):
-        """
-        Returns fields attached to Experience models.
-        """
-        if not hasattr(self, 'model'):
-            return super().__str__()
-        model = self.Experience
-        app = Experience._meta.app_label
-        return '%s.%s.%s' % (resume, Experience._meta.object_name, self.name)
 
-class ExperienceForm(ModelForm):
-    class Meta:
-       model = Experience
-       fields = ['company', 'title', 'location', 'start_date', 'end_date', 'description']
+
+class Education(models.Model):
+    """
+    Model (DB layer) for "resume" app that hold Education records
+    ForeignKey: Resume
+    """
+    parent_resume = models.ForeignKey(Resume, on_delete=models.CASCADE, default =1)
+    institution_name = models.CharField(max_length=40, null=False, blank=True)
+    location = models.CharField(max_length=40 , null=False, blank=True)
+    degree = models.CharField(max_length=40, null=False, blank=True)
+    major = models.CharField(max_length=40, null=False, blank=True)
+    gpa = models.FloatField(max_length=40, null=False, blank=True)
 
 
