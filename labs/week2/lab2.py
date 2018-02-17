@@ -17,7 +17,7 @@ def squared_nums(num_list):
         sq_num =pow(num, 2)
         new_list.append(sq_num)
 
-    print (new_list)
+    return (new_list)
 
 
 def check_title(title_list):
@@ -28,10 +28,10 @@ def check_title(title_list):
     """
     new_list= [ ]
     for title in title_list:
-        if (title.istitle() , title.isalpha()):
-                new_list.append(title)
+        if title.istitle() and title.isalpha():
+                new_list.append(title_list)
 
-    print (new_list)
+    return (new_list)
 
 
 def restock_inventory(inventory):
@@ -43,9 +43,9 @@ def restock_inventory(inventory):
     Retuns: updated dictionay where each item is restocked
     """
     new_inventory = { }
-    for key, val in inventory:
-        val = val +10
-        new_inventory[key]= val
+    for key, value in inventory.items():
+        value = value +10
+        new_inventory[key]= value
 
     return new_inventory
 
@@ -60,10 +60,8 @@ def filter_0_items(inventory):
     """
     results = { }
     for key, value in inventory.items():
-        if key in inventory ==0:
-            inventory.pop(key, None)
-        else:
-            inventory.update()
+        if key !=0:
+            inventory[key] = value
 
     return results
 
@@ -76,15 +74,11 @@ def average_grades(grades):
         value: list of integers grades receieved in class
     Returns: dictionary that averages out the grades of each student
     """
-    gradesMean = { }
+    grades_mean = { }
     for key, value in grades.items():
+        grades_mean[ key] = sum(value)/ len(value)
 
-        grades = value
-        gradesMean = float(sum(item for item in grades)) / len(grades)
-        value.append(gradesMean)
-        gradesMean = grades
-
-    return gradesMean
+    return grades_mean
 
 
 
