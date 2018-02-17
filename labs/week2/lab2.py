@@ -58,12 +58,16 @@ def filter_0_items(inventory):
         value: integers that equals the number of that item currently on hand
     Returns: the same inventory_dic with any item that had quantity removed
     """
-    results = { }
-    for key, value in inventory.items():
-        if key !=0:
-            inventory[key] = value
+    new_inventory = [ ]
 
-    return results
+    for item in inventory:
+        if inventory[item] ==0:
+            new_inventory.append(item)
+
+    for keys in new_inventory:
+        del inventory[keys]
+
+    return inventory
 
 
 def average_grades(grades):
