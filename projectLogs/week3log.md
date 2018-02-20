@@ -1,80 +1,44 @@
-**Lab 3 Django**
-
+# Week 3 Django
 Andrea Murphy
-
-Project Log for: django/week3
+Project Log for:
+django/week3
 
 **Subject** : Python and Django
-
 **Purpose** : Become familiar with Django apps, models, the admin panel, and query sets
 
-**Description** : In this lab we will add dynamic data to our resume page. Using Django models, create a new app, called &quot;resume&quot;, link the **ROOT\_URLCONF** to the **apps.urls** , create two models, add data to our database, and display the data to the user using a template.
-
-
+**Description** : In this lab we will add dynamic data to our resume page. Using Django models, create a new app, called 'resume', link the **ROOT\_URLCONF** to the **apps.urls** , create two models, add data to our database, and display the data to the user using a template.
 
 **Starting point:**
-
- The project is the codebase you have in
-
+The project is the codebase-
 **~/workspace/django/week2**
-
 Make a copy of
-
-  **~/workspace/django/week2** to **~/workspace/django/week3**
-
+**~/workspace/django/week2** to **~/workspace/django/week3**
 with
-
-**$ cp -r week2 week3**                      #You must be in ~/workspace/Django
-
+**$ cp -r week2 week3**       #You must be in ~/workspace/Django
 Use
-
-**$ git**** status                                          ** #to confirm that all the new directories
-
-
-
-        **~/workspace/django/week3**                 #are untracked
-
+**$ git status**              #to confirm that all the new directories
 Use
-
-  **git add --all** and **git commit -m &#39;start week3 Django project&#39;**
-
+ **git add --all** and **git commit -m &#39;start week3 Django project&#39;**
 #to document your new Django project setup
 
-**Details**
-
-1. App: &quot;resume&quot;
-  - Create a new app that is named &quot;resume&quot;
-  - add &quot;resume&quot; to your installed\_apps in **settings.py**
+# Details:
+ App:
+  - Create a new app that is named- 'resume'
+  - add to your installed apps in **settings.py**
 
 INSTALLED\_APPS = [
 
-    &#39;django.contrib.admin&#39;,
 
-    &#39;django.contrib.auth&#39;,
-
-    &#39;django.contrib.contenttypes&#39;,
-
-    &#39;django.contrib.sessions&#39;,
-
-    &#39;django.contrib.messages&#39;,
-
-    &#39;django.contrib.staticfiles&#39;,
-
-    &#39;resume&#39;,
+        'resume',
 
 ]
 
-1.  Create py
-  - Experience Model
+# Experience Model
 
 class Experience(models.Model):
-
-    &quot;&quot;&quot;
-
+    """
     Model (DB layer) for Andrea Murphy professional work experience
-
-    &quot;&quot;&quot;
-
+    """
     company = models.CharField(max\_length=40)
 
     title = models.CharField(max\_length=40)
@@ -87,25 +51,15 @@ class Experience(models.Model):
 
     description = models.TextField()
 
-
-
     def \_\_str\_\_(self):
+            return self.title
 
-            return self.company
-
--
-  - Education Model
+# Education Model
 
 class Education(models.Model):
-
-    &quot;&quot;&quot;
-
+    """
     Model (DB layer) for Andrea Murphy&#39;s education records
-
-    &quot;&quot;&quot;
-
-
-
+    """
     institution\_name = models.CharField(max\_length=40)
 
     location = models.CharField(max\_length=40)
@@ -120,209 +74,90 @@ class Education(models.Model):
 
             return self.title
 
-- Django Shell
+# Django Shell
   - Launch the shell using-
+(805-env) Andreas-MacBook-Pro:week3 $ ***python3 manage.py shell***
+Import your models from command line-
 
-(805-env) Andreas-MacBook-Pro:week3 $ python3 manage.py shell
+from resume.models import Education
+new_education = Education(institution_name="UNH", location="Manchester, NH", degree="Masters of Science ", major="IT", gpa=3.8, name="Education")
 
--
-  - Import your models from command line-
+>>>new_education.save() #must save at each new entry
 
-        &gt;&gt;&gt;from resume.models import Education
+new_education = Education(institution_name="VCU", location= "Richmond,VA", degree= "Bachelor of Science",major="Business Marketing", gpa=3.5, name="Education")
 
-new\_education = Education(institution\_name=&quot;UNH&quot;, location=&quot;Manchester, NH&quot;, degree=&quot;Masters of Science &quot;, major=&quot;IT&quot;, gpa=3.8, name=&quot;Education&quot;)
+>>>new_education.save()
 
-&gt;&gt;&gt;new\_education.save()        #must save at each new entry
+>>>from resume.models import Experience
 
-new\_education = Education(institution\_name=&quot;VCU&quot;, location= &quot;Richmond,VA&quot;, degree= &quot;Bachelor of Science&quot;,major=&quot;Business Marketing&quot;, gpa=3.5, name=&quot;Education&quot;)
+new_experience = Experience(company= "Three Owl Design", title= "Founder and Principal Operator", location="New Boston, NH", start_date= '2015-05-01', end_date= '2018-02-01', description=" Communications and Cross-functional Virtual Marketing Manager, Web and Graphic Designer", name = "Experience")
 
-&gt;&gt;&gt;new\_education.save()
+>>>new_experience.save()
 
-&gt;&gt;&gt;from resume.models import Experience
+new_experience = Experience(company= "Canvas on the Road", title= "Owner and Principal Art Teacher", location="New Hampshire", start_date= '2016-11-01', end_date= '2018-02-01', description="Operations management and, marketing graphic and web design, teach varies types of art classes", name = "Experience")
 
-new\_experience = Experience(company= &quot;Three Owl Design&quot;, title= &quot;Founder and Principal Operator&quot;, location=&quot;New Boston, NH&quot;, start\_date= &#39;2015-05-01&#39;, end\_date= &#39;2018-02-01&#39;, description=&quot; Communications and Cross-functional Virtual Marketing Manager, Web and Graphic Designer&quot;, name = &quot;Experience&quot;)
+>>>new_experience.save()
 
-&gt;&gt;&gt;new\_experience.save()
-
-new\_experience = Experience(company= &quot;Canvas on the Road&quot;, title= &quot;Owner and Principal Art Teacher&quot;, location=&quot;New Hampshire&quot;, start\_date= &#39;2016-11-01&#39;, end\_date= &#39;2018-02-01&#39;, description=&quot;Operations management and, marketing graphic and web design, teach varies types of art classes&quot;, name = &quot;Experience&quot;)
-
-&gt;&gt;&gt;new\_experience.save()
-
-new\_experience = Experience(company= &quot;Dawkins Productions&quot;, title= &quot;Marketing Director&quot;, location=&quot;Richmond, VA&quot;, start\_date= &#39;2014-04-01&#39;, end\_date= &#39;2015-05-01&#39;, description=&quot;Operations management, social marketing planning and execution, graphic and web design, intern program manager&quot;, name = &quot;Experience&quot;)
+new_experience = Experience(company= "Dawkins Productions", title= "Marketing Director", location="Richmond, VA", start_date= '2014-04-01', end_date= '2015-05-01', description="Operations management, social marketing planning and execution, graphic and web design, intern program manager", name = "Experience")
 
 
-
-&gt;&gt;&gt;new\_experience.save()
-
+>>>new_experience.save()
 
 
-new\_experience = Experience(company= &quot;Perfect Harmony&quot;, title= &quot;Owner and Principal Operator&quot;, location=&quot;Richmond, VA&quot;, start\_date= &#39;2008-05-01&#39;, end\_date= &#39;2015-09-01&#39;, description=&quot;Operations management and, marketing graphic and web design, therapeutic massages with ROM, and chiropractic care&quot;, name = &quot;Experience&quot;)
+new_experience = Experience(company= "Perfect Harmony", title= "Owner and Principal Operator", location="Richmond, VA", start_date= '2008-05-01', end_date= '2015-09-01', description="Operations management and, marketing graphic and web design, therapeutic massages with ROM, and chiropractic care", name = "Experience")
 
-&gt;&gt;&gt;new\_experience.save()
+>>>new_experience.save()
 
+Confirm the objects were saved by using query sets
 
-
--
-  - Confirm the objects were saved by using query sets
-
-&gt;&gt;&gt;education\_queryset = Education.objects.all()
+>>>education_queryset = Education.objects.all()
 
 
-
-- Admin Panel
-  - Register these models with the admin panel in ( **resume/admin.py** module)
-
+# Admin Panel
+Register these models with the admin panel in ***resume/admin.py module***
 from django.contrib import admin
-
 from django.contrib import admin
-
 from .models import Education, Experience
 
 class EducationAdmin(admin.ModelAdmin):
-
 pass
 
 class ExperienceAdmin(admin.ModelAdmin):
-
 pass
 
-
-
 admin.site.register(Education, EducationAdmin)
-
 admin.site.register(Experience, ExperienceAdmin)
 
--
-  - Confirm all your entries were saved by viewing them in the admin panel
+- Confirm all your entries were saved by viewing them in the admin panel
 
 
-
-- Urls-Views-Templates:
-
-**URLS**
-
+# Urls-Views-Templates:
+***URLS***
 **resume/urls.py**
 
 urlpatterns = [
-
-    path(&#39;&#39;, views.index, name=&#39;index&#39;),
-
+    path('', views.index, name='index'),
 ]
 
-**portfolioplus/urls.py**
+***portfolioplus/urls.py***
 
 #Use include( ) function from django.conf.urls in your call to path( )
 
-path(r&#39;resume/&#39;, include(&#39;resume.urls&#39; , namespace = &#39;resume&#39;)),
+***path(r'resume/', include('resume.urls' , namespace = 'resume'))***
 
--
-  -
-    - Create a new path that will correspond to a new view
+# Views
 
-
-
-**resume/views.py**
+resume/views.py
 
 def index(request):
-
-    &quot;&quot;&quot;
-
+    """
     Renders the Resume app home template
-
     Context: Education in query set
-
-    Returns: &#39;resume/home.html&#39;
-
-    &quot;&quot;&quot;
-
+    Returns: 'resume/home.html'
+    """
     qs1 = Education.objects.all()
-
     qs2 = Experience.objects.all()
 
-    context = {&#39;new\_education&#39;:qs1, &#39;new\_experience&#39;: qs2 }
+    context = {'new_education':qs1, 'new_experience': qs2 }
+    return render(request, 'resume/home.html', context)
 
-    return render(request, &#39;resume/home.html&#39;, context)
-
-
-
-
-
-
-
-
-
-**Template:**
-
-**resume/home.html**
-
-{% extends &#39;base.html&#39; %}
-
-{% block content %}
-
-  &lt;div class=&#39;resume-banner&#39;&gt;
-
-            &lt;h1&gt;Andrea Murphy&lt;/h1&gt;
-
-            &lt;hr&gt;
-
-  &lt;div class=&#39;resume-content&#39;&gt;
-
-{% if new\_education %}
-
-  &lt;ul&gt;
-
-    {% for Education in new\_education %}
-
-      &lt;li&gt;{{ Education.institution\_name }}&lt;/a&gt;
-
-      &lt;li&gt;{{ Education.location }}&lt;/li&gt;
-
-      &lt;li&gt;{{ Education.degree }}&lt;/li&gt;
-
-      &lt;li&gt;{{ Education.major }}&lt;/li&gt;
-
-      &lt;li&gt;{{ Education.gpa }}&lt;/li&gt;
-
-    {% endfor %}
-
-  &lt;/ul&gt;
-
-  {% else %}
-
-    &lt;h1&gt;Contact an Admin!&lt;/h1&gt;
-
-  {% endif %}
-
-{% if new\_experience %}
-
-  &lt;ul&gt;
-
-    {% for Experience in new\_experience %}
-
-      &lt;li&gt;{{Experience.company}}&lt;/li&gt;
-
-      &lt;li&gt;{{Experience.title}}&lt;/li&gt;
-
-      &lt;li&gt;{{Experience.location}}&lt;/li&gt;
-
-      &lt;li&gt;{{Experience.start\_date}}&lt;/li&gt;
-
-      &lt;li&gt;{{Experience.end\_date}}&lt;/li&gt;
-
-      &lt;li&gt;{{Experience.description}}&lt;/li&gt;
-
-    {% endfor %}
-
-  &lt;/ul&gt;
-
-  {% else %}
-
-    &lt;h1&gt;Contact an Admin!&lt;/h1&gt;
-
-    {% endif %}
-
-  {% endblock %}
-
-  &lt;/div&gt;
-
-&lt;/div&gt;
