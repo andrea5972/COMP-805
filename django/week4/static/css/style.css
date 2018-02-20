@@ -55,13 +55,14 @@ wrap {
 .resume-content {
     text-align: inherit;
     color:  #606060;
-    font-size: 150%;
+    font-size: 100%;
     max-width: 100%;
 }
 
 .blocks {
     text-align: center;
 }
+
 
 .contact-banner {
     text-align: center;
@@ -109,17 +110,14 @@ body {
     margin: 0;
 }
 
-.my-button {
-    width: 20%;
-    display: inline-block;
-    overflow-wrap: inherit;
-    padding: 6px;
-    background-color:  #191970;
-    opacity: 0.6;
-    filter: alpha(opacity=60);
-    border: inherit;
-    border-radius: 17px;
-    color: white;
-    text-align: center;
-    text-decoration: none;
+h3 {
+    color: #008080;
+    font-family: verdana;
+    font-size: 150%;
+}
+
+h4 {
+    color: #00008b;
+    font-family: verdana;
+    font-size: 100%;
 }
