@@ -5,6 +5,7 @@ COMP-805
 2/17/2018
 Unittest
 """
+
 import unittest
 
 def squared_nums(num_list):
