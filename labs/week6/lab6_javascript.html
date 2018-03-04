@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Lab 6</title>
+
+	<style>
+		li {
+			list-style: none;
+		}
+
+		.centered {
+			text-align: center;
+		}
+
+		.problem {
+			text-size: 1.5em;
+			font-weight: 700;
+			padding: 10px 20px;
+		}
+
+	</style>
+
+</head>
+
+<body>
+	<div class="header centered">
+		<h1>Welcome To Lab 6</h1>
+		<p><small>It's good to see you again, you like nice today.</small></p>
+
+		<h3>Instructions</h3>
+		<p>Read, and then do. It's that simple.</p>
+		<p>Add to workspace/labs/week6 and push to git. You get me?</p>
+	</div>
+
+	<div id="prob1">
+		<p class='problem'>1. When I click the button below, it should change from "click me!" to "I was clicked!"</p>
+		<button id ="clicked">Click Me!</button>
+	</div>
+
+	<div id="prob2">
+		<p class='problem'>2. There are two buttons below. When a button is clicked, the other
+			 button should appear and the button that was clicked should disappear.</p>
+		<button onclick="buttonB" id = "buttonA"> Button A: Show B</button>
+		<button onclick="buttonA" id = "buttonB">Button B: Show A</button>
+
+	</div>
+
+	<div id="prob4">
+		<p id='header'>3. My favorite color is is pink. When I click the button below. I want
+			this header to change to my favorite color</p>
+		<input type="button" value="Pink Is My Favorite Color" onclick="color('pink')">
+	</div>
+
+	<div id="prob4">
+		<p class='problem'>4. I like to say hi to people. There is an unorded list below and a button. When I click the button,
+			I want another list item to appear greeting a new person.</p>
+		<button onclick= "getGreeting()">Say Hi</button>
+    		<ul id="myul"></ul>
+
+	</div>
+
+	<div id="prob5">
+		<p class='problem'>5. I like to browse the web. But I'm a nerd, and only use the console.
+			There is a text box and button below. I want to put a url into the text box, click the button, and see the response in the console.</p>
+		<input type="text" id = "mytext">
+		<button onclick="getthttp()">Fetch!</button>
+	</div>
+
+	<div id="prob6">
+		<p class='problem'>6. I like my data like I like my news...fake. Fill the empty ul below with some fake data from https://jsonplaceholder.typicode.com/ when I click the fetch button.</p>
+		<button>Fetch!</button>
+		<ul></ul>
+	</div>
+
+<script>
+document.getElementById("clicked").onclick = function()
+	{myFunction()};
+	function myFunction() {
+    	document.getElementById("clicked").innerHTML = "YOU CLICKED ME!";
+		}
+</script>
+
+
+<script>
+    var button = document.getElementById('buttonA');
+    	button.onclick = function() {
+            var button = document.getElementById('buttonA');
+
+        if (button.style.display !== 'none') {
+                button.style.display = 'none';
+        }
+        else {
+                button.style.display = 'buttonB';
+    }
+}
+    var button = document.getElementById('buttonB');
+    button.onclick = function() {
+            var button = document.getElementById('buttonB');
+
+        if (button.style.display !== 'none') {
+                button.style.display = 'none';
+        }
+        else {
+                button.style.display = 'buttonA';
+    }
+}
+</script>
+
+
+<script>
+function color(col){
+	document.getElementById("header").style.backgroundColor=col;
+	}
+</script>
+
+
+<script>
+button.onclick = function()
+    {getGreeting()};
+    var friend_num = 1;
+    function getGreeting() {
+    	var greeting = ("Hello, my new friend #" + friend_num);
+	var ul = document.getElementById("myul");
+    	var y = document.createElement("li");
+    	y.appendChild(document.createTextNode(greeting));
+    	ul.appendChild(y);
+    	(friend_num++);
+}
+</script>
+
+<script>
+button.onclick = function()
+{get_http()};
+function get_http(){
+fetch(''./api/some.json'')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+    console.log(myJson);
+  });
+
+</script>
+	</body>
+</html>
