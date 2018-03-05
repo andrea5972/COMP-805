@@ -69,7 +69,7 @@
 	<div id="prob6">
 		<p class='problem'>6. I like my data like I like my news...fake. Fill the empty ul below with some fake data from https://jsonplaceholder.typicode.com/ when I click the fetch button.</p>
 		<button onclick = "prob6()" >Fetch!</button>
-		<ul id ="fake"></ul>
+		<ul id ="fakeoutput"></ul>
 	</div>
 
 
@@ -130,18 +130,21 @@ function get_http(){
 
 function prob6(){
     fetch('https://jsonplaceholder.typicode.com/posts/1/comments')
-    .then(function(response){
-     return response.json();
-      })
-
-    .then(function(myJason) {
-    var ul = document.getElementById("fake");
-    var li = document.createElement("li");
-    li.appendChild(console.log(response));
-    ul.appendChild(li);
-     })
- }
-
+    .then((res) => { return res.json() })
+            .then((data) => {
+            let result = '<h2> Fake </h2>';
+                data.forEach((user) => {
+                    result +=
+                     `<h4> User ID: ${user.id} </h4>
+                     <ul>
+                       <li> User name : ${user.name}</li>
+                       <li> User email: ${user.email} </li>
+                    </ul>
+                     `;
+                document.getElementById('fakeoutput').innerHTML = result;
+                });
+           })
+        }
 </script>
 	</body>
 </html>
