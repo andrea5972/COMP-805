@@ -7,7 +7,7 @@ Jan 29, 2018
 The purpose of this file is to learn BASIC python syntax and data structures.
 There is an accompanying test file. Place both files in the same directory,
 and then run:
-$ python tests.py
+$ python3 tests.py
 
 You will see a print out of tests that are being run, and your result.
 Please see: https://www.python.org/dev/peps/pep-0008/ for style guidelines
@@ -20,7 +20,7 @@ def give_me_a_string():
     """
     message = 'Hello, yall'
     return(message)
-    pass
+
 
 def give_me_an_integer():
     """
@@ -28,7 +28,7 @@ def give_me_an_integer():
     """
     int = 4
     return(int)
-    pass
+
 
 def give_me_a_boolean():
     """
@@ -40,7 +40,7 @@ def give_me_a_boolean():
         return True
     else:
         return False
-    pass
+
 
 def give_me_a_float():
     """
@@ -48,7 +48,7 @@ def give_me_a_float():
     """
     float= 3.5
     return(float)
-    pass
+
 
 def give_me_a_list():
     """
@@ -56,15 +56,15 @@ def give_me_a_list():
     """
     t =[1,2,3]
     return(t)
-    pass
+
 
 def give_me_a_dictionary():
     """
     This function returns a dictionary
     """
-    d = {cat:1, dog:2}
+    d = {'cat':1, 'dog':2}
     return(d)
-    pass
+
 
 def give_me_a_tuple():
     """
@@ -72,7 +72,7 @@ def give_me_a_tuple():
     """
     tup= (555, 'Website', 'Application', 805)
     return tup
-    pass
+
 
 def sum_numbers_one_to_ten():
     """
@@ -82,11 +82,10 @@ def sum_numbers_one_to_ten():
     Use the accumulator pattern:
     http://interactivepython.org/runestone/static/thinkcspy/Functions/TheAccumulatorPattern.html
     """
-    runningtotal = 0
-    for counter in range(0,10,1)
-        runningtotal = runningtotal +1
-    return runningtotal
-    pass
+    sum = 0
+    for number in range(1,11):
+        sum = sum + number
+    return sum
 
 
 def check_is_even(number):
@@ -96,22 +95,19 @@ def check_is_even(number):
     hint: use modulo operator
     https://docs.python.org/3/reference/expressions.html
     """
-    if (num % 2 == 0):
+    if (number % 2 == 0):
         return True
     else:
         return False
-    pass
+
 
 def check_is_less_than(number1, number2):
     """
     This functions returns True if number1 < number2
     else False
     """
-    number1=1
-    number2=3
-
-    if number1 < number2
+    if number1 < number2:
         return True
-    else
+    else:
         return False
-    pass
+
