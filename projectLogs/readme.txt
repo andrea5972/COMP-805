@@ -1,1 +1,1 @@
-“Project Logs for Django Labs: Learning Markdown” 
+# Project Logs for Django Labs
