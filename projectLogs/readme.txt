@@ -1,1 +1,1 @@
-# Project Logs for Django Labs
+Project Logs for Django: Python Labs
